@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
 class UsuariosController extends Controller
 {
@@ -13,14 +14,12 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        // Pasa un arreglo de datos a una vista
-
-        $usuarios=[
-            'roque',
-            'fabi',
-            'sebas'
-        ];
-        return view('administracion.usuarios', ['usuarios'=>$usuarios]);
+        // Pasa un arreglo de objetos a una vista
+        $usuarios = Usuario::all();
+        
+        //dd($usuarios);
+        
+        return view('usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -31,17 +30,30 @@ class UsuariosController extends Controller
     public function create()
     {
         //
+        $usuarios = Usuario::all();
+        return view('usuarios.create', compact('usuarios'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $data = request()->validate([
+            'codUser' => 'required',
+            'nomUser' => 'required',
+            'passUser' => 'required',
+            'rolUser' => 'required'
+        ]);
+        
+        Usuario::create($data);
+        
+        return back();
+
+
     }
 
     /**
@@ -76,6 +88,7 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
     }
 
     /**
@@ -87,5 +100,22 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function validateData()
+    {
+        $data = request()->validate([
+            'codUser' => 'required',
+            'nomUser' => 'required',
+            'passUser' => 'required',
+            'rolUser' => 'required'
+        ]);
+        
+        Usuario::create($data);
+        
+        return back();
+
+
     }
 }

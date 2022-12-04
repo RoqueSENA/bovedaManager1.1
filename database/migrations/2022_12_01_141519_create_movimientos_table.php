@@ -28,11 +28,11 @@ return new class extends Migration
             $table->integer('cantProtMov');
             $table->integer('cantidadMov');
 
-            $table->foreign('codFondDestMov')->references('id')->on('fondos')->onDelete("cascade");
-            $table->foreign('codFondOrigMov')->references('id')->on('fondos')->onDelete("cascade");
-            $table->foreign('estadoMov')->references('id')->on('estados')->onDelete("cascade");
-            $table->foreign('calidadMov')->references('id')->on('calidades')->onDelete("cascade");
-            $table->foreign('denominacionMov')->references('id')->on('denominaciones')->onDelete("cascade");
+            //$table->foreign('codFondDestMov')->references('id')->on('fondos')->onDelete("cascade");
+            //$table->foreign('codFondOrigMov')->references('id')->on('fondos')->onDelete("cascade");
+            //$table->foreign('estadoMov')->references('id')->on('estados')->onDelete("cascade");
+            //$table->foreign('calidadMov')->references('id')->on('calidades')->onDelete("cascade");
+            //$table->foreign('denominacionMov')->references('id')->on('denominaciones')->onDelete("cascade");
             $table->timestamps();
         });
     }
