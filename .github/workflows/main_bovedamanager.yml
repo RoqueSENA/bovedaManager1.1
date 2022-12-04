@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'BovedaManager'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A15EA3FAA77F47C59AC79817AA1FFEE0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5E6ECB6FEBEB4E00B6121F5EE538AFF4 }}
           package: .
